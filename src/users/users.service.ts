@@ -51,11 +51,11 @@ export class UsersService {
   }
 
   async updateStatuses(updateUserDto: UpdateUserStatusDto[]) {
-    // 1. the best way to do save in bulk is using queus like rabit or kafka
-    // on UI usualy used loader with status
+    // 1. the best way to do save in bulk is using queus like rabit/kafka
+    // on UI usualy use statuses to display state loading/not loading
     // 2. Another way is to use socket if there are a lot of operations
 
-    updateUserDto.forEach(async ({ id, status }) => {
+    updateUserDto.forEach(({ id, status }) => {
       this.updateStatus(id, { status });
     });
     return {

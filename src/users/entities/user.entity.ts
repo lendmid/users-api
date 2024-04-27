@@ -35,26 +35,8 @@ export class User {
   @Column({ nullable: true })
   groupId: number;
 
-  @Exclude() // Excluding the relation object from appearing in the results because the user Id above is enough
+  @Exclude()
   @ManyToOne(() => Group, { onUpdate: 'CASCADE', onDelete: 'CASCADE' })
   @JoinColumn({ name: 'groupId' })
   user: Group;
-  // @Column({ nullable: true })
-  // groupId: number;
-
-  // @Column({ nullable: true })
-  // @ManyToOne(() => Group, (group) => group.id, {
-  //   onDelete: 'CASCADE',
-  //   onUpdate: 'CASCADE',
-  // })
-  // @JoinColumn()
-  // groupId: number;
-  // @JoinColumn()
-  // @ManyToOne(() => Group, (group) => group.id, { cascade: true, eager: true })
-  // @ManyToOne(() => Group, (group) => group.id, {
-  //   // eager: true,
-  //   onDelete: 'CASCADE',
-  //   onUpdate: 'CASCADE',
-  // })
-  // @JoinColumn({ name: 'groupId' })
 }
